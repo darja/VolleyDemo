@@ -1,5 +1,6 @@
 package com.demos.volley;
 
+import android.net.Uri;
 import com.android.volley.NetworkResponse;
 import com.android.volley.Request;
 import com.android.volley.Response;
@@ -23,7 +24,7 @@ public class ImdbSearchRequest extends Request<List<Film>> {
     }
 
     private static String constructUrl(String searchString) {
-        return "http://www.omdbapi.com/?s=" + searchString;
+        return "http://www.omdbapi.com/?s=" + Uri.encode(searchString);
     }
 
     @Override

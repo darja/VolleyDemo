@@ -4,7 +4,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 public class Film {
-    public enum Type { movie, series, episode, game;}
+    public enum Type { movie, series, episode, other }
 
     private final String mId;
     private final Type mType;
@@ -15,7 +15,13 @@ public class Film {
         mId = obj.getString("imdbID");
         mTitle = obj.getString("Title");
         mYear = obj.getInt("Year");
-        mType = Type.valueOf(obj.getString("Type"));
+
+        Type type = Type.other;
+        try {
+            type = Type.valueOf(obj.getString("Type"));
+        } catch (IllegalArgumentException ignored) {
+        }
+        mType = type;
     }
 
     public String getTitle() {

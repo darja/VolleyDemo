@@ -18,7 +18,7 @@ import com.demos.volley.model.imdb.Film;
 
 import java.util.List;
 
-public class MainActivity extends Activity {
+public class ImdbSearchActivity extends Activity {
     private final String TAG = "VolleyDemo.BaseExampleActivity";
 
     private RequestQueue mRequestQueue;
@@ -56,17 +56,18 @@ public class MainActivity extends Activity {
         ImdbSearchRequest request = new ImdbSearchRequest(getSearchString(),
             new Response.Listener<List<Film>>() {
                 @Override
-                public void onResponse(List<Film> response) {
-                    mFilmsListView.setAdapter(new FilmsAdapter(response));
+                public void onResponse(List<Film> result) {
+                    mFilmsListView.setAdapter(new FilmsAdapter(result));
                     mProgressDialog.dismiss();
                 }
             },
             new Response.ErrorListener() {
                 @Override
                 public void onErrorResponse(VolleyError error) {
-                    mProgressDialog.dismiss();
                     Log.e(TAG, error.getMessage(), error);
-                    Toast.makeText(MainActivity.this, error.getMessage(), Toast.LENGTH_SHORT).show();
+                    mProgressDialog.dismiss();
+                    mFilmsListView.setAdapter(null);
+                    Toast.makeText(ImdbSearchActivity.this, error.getMessage(), Toast.LENGTH_SHORT).show();
                 }
             }
         );
@@ -102,7 +103,7 @@ public class MainActivity extends Activity {
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
             if (convertView == null) {
-                convertView = LayoutInflater.from(MainActivity.this).inflate(R.layout.item_film, parent, false);
+                convertView = LayoutInflater.from(ImdbSearchActivity.this).inflate(R.layout.item_film, parent, false);
                 convertView.setTag(new ViewHolder(convertView));
             }
 

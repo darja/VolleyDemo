@@ -10,13 +10,14 @@
               android:text="IT Crowd"
               android:textAppearance="@android:style/TextAppearance.Holo.Large"
               android:id="@+id/title"
+              android:layout_marginBottom="4dp"
             />
     <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
               android:drawableLeft="@drawable/ic_episode"
               android:text="2008"
               android:gravity="center_vertical"
               android:id="@+id/additional"
-              android:drawablePadding="3dp"
+              android:drawablePadding="4dp"
               android:textColor="#303030"
             />
 
