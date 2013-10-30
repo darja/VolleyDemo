@@ -23,6 +23,7 @@ android {
 }
 
 dependencies {
+    compile 'com.google.code.gson:gson:2.2.4'
 
 	// You must install or update the Support Repository through the SDK manager to use this dependency.
 	// The Support Repository (separate from the corresponding library) can be found in the Extras category.
