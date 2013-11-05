@@ -25,14 +25,6 @@ public abstract class ExtendedRequest<T> extends Request<T> {
 
     protected final Response.Listener<T> mSuccessListener;
 
-    /**
-     * Create non-cacheable Volley request
-     *
-     * @param method HTTP method ({@link com.android.volley.Request.Method})
-     * @param url Url to request
-     * @param successListener Success callback
-     * @param errorListener Error callback
-     */
     public ExtendedRequest(int method, String url, Response.Listener<T> successListener, Response.ErrorListener errorListener) {
         super(method, url, errorListener);
         mSuccessListener = successListener;
