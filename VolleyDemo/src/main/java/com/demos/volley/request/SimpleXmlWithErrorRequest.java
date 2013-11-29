@@ -1,4 +1,4 @@
-package com.demos.volley;
+package com.demos.volley.request;
 
 import com.android.volley.NetworkResponse;
 import com.android.volley.Response;
@@ -10,16 +10,19 @@ import org.simpleframework.xml.transform.Matcher;
 
 import java.io.UnsupportedEncodingException;
 
-public class SimpleXmlRequest<T> extends ExtendedRequest<T> {
+public class SimpleXmlWithErrorRequest<T, E extends ApiError> extends ExtendedRequest<T> {
     private final Class<T> mResponseType;
+    private final Class<E> mErrorType;
 
     private Matcher mMatcher;
 
-
-    public SimpleXmlRequest(Class<T> responseType, int method, String url,
-                        Response.Listener<T> listener, Response.ErrorListener errorListener) {
+    public SimpleXmlWithErrorRequest(Class<T> responseType, Class<E> errorType,
+                                 int method, String url,
+                                 Response.Listener<T> listener, Response.ErrorListener errorListener) {
         super(method, url, listener, errorListener);
+
         mResponseType = responseType;
+        mErrorType = errorType;
     }
 
     public void setMatcher(Matcher matcher) {
@@ -36,6 +39,20 @@ public class SimpleXmlRequest<T> extends ExtendedRequest<T> {
         }
 
         Serializer serializer = mMatcher == null ? new Persister() : new Persister(mMatcher);
+
+        // check if response contains error
+        try {
+            E error = serializer.read(mErrorType, responseString);
+
+            if (error != null && error.isReasonable()) {
+                return Response.error(error);
+            }
+
+        } catch (Exception ignored) {
+            // In seems there is no error here
+        }
+
+        // no error – parse result
         try {
             T result = serializer.read(mResponseType, responseString);
             return Response.success(result, HttpHeaderParser.parseCacheHeaders(response));

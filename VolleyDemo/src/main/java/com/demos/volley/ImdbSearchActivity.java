@@ -16,6 +16,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.Volley;
 import com.demos.volley.model.imdb.Film;
+import com.demos.volley.request.ImdbSearchRequest;
 
 import java.util.List;
 
@@ -31,7 +32,7 @@ public class ImdbSearchActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_imdb_search);
 
         mRequestQueue = Volley.newRequestQueue(this);
         mProgressDialog = new ProgressDialog(this);

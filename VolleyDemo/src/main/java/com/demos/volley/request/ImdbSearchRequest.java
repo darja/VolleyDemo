@@ -1,4 +1,4 @@
-package com.demos.volley;
+package com.demos.volley.request;
 
 import android.net.Uri;
 import com.android.volley.NetworkResponse;

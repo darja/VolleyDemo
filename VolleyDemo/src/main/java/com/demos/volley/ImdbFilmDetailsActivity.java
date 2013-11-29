@@ -11,6 +11,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.Volley;
 import com.demos.volley.model.imdb.FilmDetails;
+import com.demos.volley.request.GsonRequest;
 
 public class ImdbFilmDetailsActivity extends Activity {
     public static final String EXTRA_ID = "id";
