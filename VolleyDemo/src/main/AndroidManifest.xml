@@ -15,16 +15,17 @@
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
-        <activity
-            android:name=".ImdbSearchActivity"
-            android:label="@string/label_search_imdb" >
+
+        <activity android:name=".MainActivity">\
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity android:name=".ImdbSearchActivity"/>
         <activity android:name=".ImdbFilmDetailsActivity"/>
+        <activity android:name=".WikiSearchActivity"/>
     </application>
 
 </manifest>

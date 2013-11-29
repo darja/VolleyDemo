@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+>
 
     <ImageButton android:layout_width="wrap_content" android:layout_height="wrap_content"
                  android:layout_alignParentRight="true"
@@ -10,14 +10,14 @@
                  android:background="@null"
                  android:id="@+id/btn_search"
                  android:padding="10dp"
-                 android:onClick="searchImdb"
+                 android:onClick="performSearch"
             />
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_toLeftOf="@id/btn_search"
-        android:hint="@string/search_imdb"
+        android:hint="@string/search"
         android:imeOptions="actionSearch"
         android:id="@+id/search_string"
         android:layout_marginBottom="15dp"
@@ -28,7 +28,7 @@
 
     <ListView android:layout_width="match_parent" android:layout_height="match_parent"
               android:layout_below="@id/search_string"
-              android:id="@+id/films_list"
+              android:id="@android:id/list"
             />
 
 </RelativeLayout>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:padding="10dp"
+        >
+    <!-- Custom request demo and GsonRequest demo -->
+    <Button android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:text="Search IMDB"
+            android:onClick="openImdbSearch"
+            android:layout_marginBottom="5dp"
+            />
+
+    <!-- SimpleXmlRequest demo -->
+    <Button android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:text="Search Wiki"
+            android:onClick="openWikiSearch"
+            />
+
+</LinearLayout>
