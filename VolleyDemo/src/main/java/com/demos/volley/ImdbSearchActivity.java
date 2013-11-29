@@ -1,7 +1,5 @@
 package com.demos.volley;
 
-import android.app.ListActivity;
-import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -11,20 +9,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
 import android.widget.*;
-import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
-import com.android.volley.toolbox.Volley;
 import com.demos.volley.model.imdb.Film;
 import com.demos.volley.request.ImdbSearchRequest;
 
 import java.util.List;
 
-public class ImdbSearchActivity extends ListActivity {
+public class ImdbSearchActivity extends RequestListActivity {
     private final String TAG = "VolleyDemo.ImdbSearchActivity";
-
-    private RequestQueue mRequestQueue;
-    private ProgressDialog mProgressDialog;
 
     private EditText mSearchStringView;
 
@@ -32,10 +25,6 @@ public class ImdbSearchActivity extends ListActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
-
-        mRequestQueue = Volley.newRequestQueue(this);
-        mProgressDialog = new ProgressDialog(this);
-        mProgressDialog.setMessage(getString(R.string.searching));
 
         mSearchStringView = (EditText) findViewById(R.id.search_string);
 

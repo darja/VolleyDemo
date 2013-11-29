@@ -19,4 +19,8 @@ public class MainActivity extends Activity {
     public void openWikiSearch(View view) {
         startActivity(new Intent(this, WikiSearchActivity.class));
     }
+
+    public void openImdbSingleItemSearch(View view) {
+        startActivity(new Intent(this, ImdbSearchSingleItemActivity.class));
+    }
 }

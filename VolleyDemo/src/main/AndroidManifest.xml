@@ -23,9 +23,10 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".ImdbSearchActivity"/>
-        <activity android:name=".ImdbFilmDetailsActivity"/>
-        <activity android:name=".WikiSearchActivity"/>
+        <activity android:name=".ImdbSearchActivity" android:label="@string/label_search_imdb"/>
+        <activity android:name=".ImdbFilmDetailsActivity" android:label="@string/label_film_details"/>
+        <activity android:name=".WikiSearchActivity" android:label="@string/label_search_wiki"/>
+        <activity android:name=".ImdbSearchSingleItemActivity" android:label="@string/label_search_imdb_single_item"/>
     </application>
 
 </manifest>

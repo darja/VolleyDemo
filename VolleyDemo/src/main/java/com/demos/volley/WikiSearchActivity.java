@@ -1,7 +1,5 @@
 package com.demos.volley;
 
-import android.app.ListActivity;
-import android.app.ProgressDialog;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -14,21 +12,16 @@ import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
 import android.widget.*;
 import com.android.volley.Request;
-import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
-import com.android.volley.toolbox.Volley;
 import com.demos.volley.model.mediawiki.SearchResult;
 import com.demos.volley.model.mediawiki.SearchSuggestion;
 import com.demos.volley.request.SimpleXmlRequest;
 
 import java.util.List;
 
-public class WikiSearchActivity extends ListActivity {
+public class WikiSearchActivity extends RequestListActivity {
     private final String TAG = "VolleyDemo.WikiSearchActivity";
-
-    private RequestQueue mRequestQueue;
-    private ProgressDialog mProgressDialog;
 
     private EditText mSearchStringView;
 
@@ -36,10 +29,6 @@ public class WikiSearchActivity extends ListActivity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_search);
-
-        mRequestQueue = Volley.newRequestQueue(this);
-        mProgressDialog = new ProgressDialog(this);
-        mProgressDialog.setMessage(getString(R.string.searching));
 
         mSearchStringView = (EditText) findViewById(R.id.search_string);
 

@@ -5,6 +5,10 @@
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
     <string name="search">Search</string>
-    <string name="label_search_imdb">IMDB demo</string>
     <string name="searching">Searching</string>
+
+    <string name="label_search_imdb">Search Films</string>
+    <string name="label_search_imdb_single_item">Search Film Details</string>
+    <string name="label_search_wiki">Search on Wiki</string>
+    <string name="label_film_details">Film Details</string>
 </resources>

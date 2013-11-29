@@ -1,28 +1,19 @@
 package com.demos.volley;
 
-import android.app.Activity;
-import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.android.volley.Request;
-import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
-import com.android.volley.toolbox.Volley;
 import com.demos.volley.model.imdb.FilmDetails;
 import com.demos.volley.request.GsonRequest;
 
-public class ImdbFilmDetailsActivity extends Activity {
+public class ImdbFilmDetailsActivity extends RequestActivity {
     public static final String EXTRA_ID = "id";
-
-    private ProgressDialog mProgressDialog;
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        RequestQueue requestQueue = Volley.newRequestQueue(this);
-        mProgressDialog = new ProgressDialog(this);
 
         String id = getIntent().getStringExtra(EXTRA_ID);
         String url = "http://www.omdbapi.com/?i=" + id;
@@ -44,7 +35,7 @@ public class ImdbFilmDetailsActivity extends Activity {
         );
 
         mProgressDialog.show();
-        requestQueue.add(request);
+        mRequestQueue.add(request);
     }
 
     private void showFilmDetails(FilmDetails details) {

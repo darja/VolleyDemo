@@ -8,9 +8,15 @@
         >
     <!-- Custom request demo and GsonRequest demo -->
     <Button android:layout_width="match_parent" android:layout_height="wrap_content"
-            android:text="Search IMDB"
+            android:text="Search IMDB (list)"
             android:onClick="openImdbSearch"
             android:layout_marginBottom="5dp"
+            />
+
+    <!-- GsonWithErrorRequest demo -->
+    <Button android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:text="Search IMDB (single item)"
+            android:onClick="openImdbSingleItemSearch"
             />
 
     <!-- SimpleXmlRequest demo -->
@@ -18,5 +24,4 @@
             android:text="Search Wiki"
             android:onClick="openWikiSearch"
             />
-
 </LinearLayout>
