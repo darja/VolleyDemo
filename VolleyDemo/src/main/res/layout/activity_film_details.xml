@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+<LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+              android:orientation="vertical"
+              android:padding="10dp"
+        >
+    <!-- Title -->
+    <TextView android:layout_height="wrap_content" android:layout_width="match_parent"
+              android:id="@+id/title"
+              android:textAppearance="@android:style/TextAppearance.Holo.Large"
+              android:text="Doctor Who"
+            />
+
+    <!-- Year -->
+    <TextView android:layout_height="wrap_content" android:layout_width="match_parent"
+              android:id="@+id/year"
+              android:textAppearance="@android:style/TextAppearance.Holo.Small"
+              android:text="2005"
+            />
+
+    <!-- Summary -->
+    <TextView android:layout_height="wrap_content" android:layout_width="match_parent"
+              android:id="@+id/summary"
+              android:text="Lorem ipsum"
+              android:layout_marginTop="20dp"
+              android:layout_marginBottom="20dp"
+            />
+
+    <!-- Genre -->
+    <TextView android:layout_height="wrap_content" android:layout_width="match_parent"
+              android:text="Genre"
+              android:textStyle="bold"
+            />
+    <TextView android:layout_height="wrap_content" android:layout_width="match_parent"
+              android:id="@+id/genre"
+              android:text="Sci-Fi"
+              android:layout_marginBottom="20dp"
+            />
+
+    <!-- Actors -->
+    <TextView android:layout_height="wrap_content" android:layout_width="match_parent"
+              android:text="Starring"
+              android:textStyle="bold"
+            />
+    <TextView android:layout_height="wrap_content" android:layout_width="match_parent"
+              android:id="@+id/actors"
+              android:text="David Tennant, Matt Smith"
+              android:layout_marginBottom="20dp"
+            />
+
+    <!-- IMDB rating -->
+    <TextView android:layout_height="wrap_content" android:layout_width="match_parent"
+              android:text="IMDB Rating"
+              android:textStyle="bold"
+            />
+    <TextView android:layout_height="wrap_content" android:layout_width="match_parent"
+              android:id="@+id/rating"
+              android:text="8.6"
+              android:layout_marginBottom="20dp"
+            />
+</LinearLayout>
+</ScrollView>

@@ -6,5 +6,5 @@
     <string name="hello_world">Hello world!</string>
     <string name="search_imdb">Search IMDB</string>
     <string name="label_search_imdb">IMDB demo</string>
-
+    <string name="searching">Searching</string>
 </resources>

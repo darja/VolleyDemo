@@ -2,6 +2,7 @@ package com.demos.volley;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.KeyEvent;
@@ -34,9 +35,11 @@ public class ImdbSearchActivity extends Activity {
 
         mRequestQueue = Volley.newRequestQueue(this);
         mProgressDialog = new ProgressDialog(this);
+        mProgressDialog.setMessage(getString(R.string.searching));
 
         mSearchStringView = (EditText) findViewById(R.id.search_string);
         mFilmsListView = (ListView) findViewById(R.id.films_list);
+        mFilmsListView.setOnItemClickListener(mFilmDetailsSelectedListener);
 
         mSearchStringView.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
@@ -46,7 +49,7 @@ public class ImdbSearchActivity extends Activity {
                     return true;
                 }
                 return false;
-            };
+            }
         });
     }
 
@@ -77,6 +80,17 @@ public class ImdbSearchActivity extends Activity {
     public String getSearchString() {
         return mSearchStringView.getText().toString();
     }
+
+    private AdapterView.OnItemClickListener mFilmDetailsSelectedListener = new AdapterView.OnItemClickListener() {
+        @Override
+        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+            Film chosenFilm = (Film) parent.getItemAtPosition(position);
+
+            Intent intent = new Intent(ImdbSearchActivity.this, ImdbFilmDetailsActivity.class);
+            intent.putExtra(ImdbFilmDetailsActivity.EXTRA_ID, chosenFilm.getId());
+            startActivity(intent);
+        }
+    };
 
     private class FilmsAdapter extends BaseAdapter {
         private final List<Film> mItems;
