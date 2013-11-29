@@ -1,0 +1,43 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+>
+
+    <ImageButton android:layout_width="wrap_content" android:layout_height="wrap_content"
+                 android:layout_alignParentRight="true"
+                 android:src="@android:drawable/ic_menu_search"
+                 android:background="@null"
+                 android:id="@+id/btn_search"
+                 android:padding="10dp"
+                 android:onClick="performSearch"
+            />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toLeftOf="@id/btn_search"
+        android:hint="@string/search"
+        android:imeOptions="actionSearch"
+        android:id="@+id/search_string"
+        android:layout_marginBottom="15dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:singleLine="true"
+         />
+
+    <ScrollView android:layout_width="match_parent" android:layout_height="match_parent"
+                android:layout_below="@id/search_string"
+                android:id="@+id/details_container"
+                android:visibility="gone"
+            >
+        <include layout="@layout/inc_film_details" />
+    </ScrollView>
+
+    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+              android:id="@+id/error_message"
+              android:layout_centerInParent="true"
+              android:visibility="gone"
+              android:padding="10dp"
+            />
+</RelativeLayout>
